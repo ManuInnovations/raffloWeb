@@ -1,0 +1,38 @@
+<%= form_for(raffle) do |f| %>
+
+    Name of community group:<br>
+
+    <%= text_field(:raffle, :group_name) %><br>
+
+    Name of raffle:<br>
+
+    <%= text_field(:raffle, :raffle_name) %><br>
+
+    Fundraising details (what are you fundraising for?):<br>
+
+    <%= text_area(:raffle, :fundraising_details) %><br>
+
+    Date of draw:<br>
+
+    <%= date_select :raffle, :draw_date %><br>
+
+    Raffle details (let's add your raffle items):<br>
+    <%= text_area(:raffle, :raffle_items) %><br>
+  <br>
+
+  <% if raffle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(raffle.errors.count, "error") %> prohibited this raffle from being saved:</h2>
+
+      <ul>
+      <% raffle.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

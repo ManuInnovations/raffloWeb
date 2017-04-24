@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <div class="page-header">
+    <h1>New Rafflo created <small>You're on your way to a great fundraiser!</small></h1>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-md-6">
+      <h2>
+        Here are the details of your fundraiser.
+      </h2>
+      <p>
+        If you want to change any of your detail you can go here:
+        <%= link_to 'Edit', edit_raffle_path(@raffle) %>
+      </p>
+      <p>Start promoting your raffle! Click below to email your raffle information to your community.</p>
+        <%= mail_to "me@domain.com" do %>
+          <strong>Email your raffle information to your community:</strong>
+        <% end %>
+        <a href="mailto:me@domain.com">
+               <strong>Email me:</strong> <span>me@domain.com</span>
+             </a>
+      </p>
+    </div>
+    <div class="col-sm-6 col-md-6">
+      <p>Your community group's name: <%= @raffle.group_name %></p>
+      <p>The name of your raffle: <%= @raffle.raffle_name %></p>
+      <p>Here is what you are fundraising for: <%= @raffle.fundraising_details %></p>
+      <p>Here is the date for the raffle draw:<%= @raffle.draw_date %></p>
+      <p>Here is what is in our raffle: <%= @raffle.raffle_items %></p>
+    </div>
+  </div>
+
+
+</div>
+<!-- <%= link_to 'Back', raffles_path %> -->
